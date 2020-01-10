@@ -16,8 +16,9 @@ module Rack
       @hsts = {} if @hsts.nil? || @hsts == true
       @hsts = self.class.default_hsts_options.merge(@hsts) if @hsts
 
-      @exclude = options[:exclude]
-      @host    = options[:host]
+      @exclude             = options[:exclude]
+      @host                = options[:host]
+      @disable_redirection = options[:disable_redirection]
     end
 
     def call(env)
@@ -29,6 +30,8 @@ module Rack
         flag_cookies_as_secure!(headers)
         [status, headers, body]
       else
+        return @app.call(env) if @disable_redirection
+
         redirect_to_https(env)
       end
     end

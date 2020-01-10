@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name      = 'rack-ssl'
-  s.version   = '1.4.1'
-  s.date      = '2014-03-23'
+  s.version   = '1.5.0'
+  s.date      = '2020-01-10'
 
-  s.homepage    = "https://github.com/josh/rack-ssl"
+  s.homepage    = "https://github.com/luciditytech/rack-ssl"
   s.summary     = "Force SSL/TLS in your app."
   s.license     = "MIT"
   s.description = <<-EOS
